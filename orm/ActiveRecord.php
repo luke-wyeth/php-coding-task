@@ -2,7 +2,7 @@
 
 namespace Orm;
 
-use ActiveRecordInterface;
+include_once 'ActiveRecordInterface.php';
 
 /**
  * ActiveRecord
@@ -25,4 +25,10 @@ abstract class ActiveRecord implements ActiveRecordInterface
     {
         // Assume a full working implementation
     }
+
+    public function isModified(): bool {
+        return $this->isModified;
+    }
 }
+
+?>

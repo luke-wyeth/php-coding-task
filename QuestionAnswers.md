@@ -1,0 +1,5 @@
+1. What does the `final` keyword mean the [DownloadLog](orm/DownloadLog.php) model? What are the implications in removing the `final` declaration?
+    The final keyword on the DownloadLog model means that the class cannot be extended. Removing 'final' would allow other classes to extend DownloadLog and potentially modify it's behaviour in subclasses. In terms of the ActiveRecord model, this probably wouldn't be a good thing because the DownloadLog model needs to represent an exact model of a record in a database so allowing subclasses to change it could cause the model to be inconsistent with the database.
+
+2. The current of implementation of [DownloadLog](orm/DownloadLog.php) contains a fatal error. What is it, and how would it be resolved?
+    DownloadLog extends ActiveRecord, which implements ActiveRecordInterface but does not implement the abstract method isModified. It's resolved by implementing the isModified method in either DownloadLog or ActiveRecord.

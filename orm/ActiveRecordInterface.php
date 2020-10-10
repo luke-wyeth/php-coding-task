@@ -12,3 +12,5 @@ interface ActiveRecordInterface
      */
     public function isModified(): bool;
 }
+
+?>
